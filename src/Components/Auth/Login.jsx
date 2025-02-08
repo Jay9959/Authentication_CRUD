@@ -80,12 +80,12 @@ const Login = () => {
                 <button onClick={handleGoogleLogin} className="border-0 bg-transparent"><img src="/public/goole.logo.png" width={180} alt="" style={{ marginLeft: "-60%" }} /></button>
               </Col>
               <hr className="mt-3 w-50 mx-auto" />
-              <button type="submit" className="border-0 bg-transparent text-white" style={{
+              <button type="submit" className="border-0 bg-transparent " style={{
                 marginLeft : "15px"
               }}>Login</button>
             </Form.Group>
           </Form>
-          <p>Create an Account ? <Link className="text-decoration-none text-white fw-bold" to={"/signup"}>SignUp</Link></p>
+          <p>Create an Account ? <Link className="text-decoration-none text-danger fw-bold" to={"/signup"}>SignUp</Link></p>
         </Col>
       </Row>
     </>
