@@ -1,52 +1,52 @@
 const initalState = {
-    books: JSON.parse(localStorage.getItem('books')) || [],
-    book: null,
+    recipes: JSON.parse(localStorage.getItem('recipes')) || [],
+    recipe: null,
     isLoading: false,
     isCreated: false,
     error: null,
     isUpdated: false
 }
 
-export const bookReducer = (state = initalState, action) => {
+export const recipeReducer = (state = initalState, action) => {
     switch (action.type) {
         case "LOADING" : 
         return{
             ...state,
             isLoading: true
         }
-        case "ADD_NEW_BOOK":
+        case "ADD_NEW_RECIPE":
         return{
             ...state,
             isCreated: true
         }
 
-        case "ADD_NEW_BOOK_REJ": 
+        case "ADD_NEW_RECIPE_REJ": 
         return {
             ...state,
             error: action.payload
         }
 
-        case "GET_ALL_BOOKS":
+        case "GET_ALL_RECIPES":
             return {
                 ...state,
-                books: action.payload,
+                recipes: action.payload,
                 isLoading: false,
                 isCreated: false,
                 isUpdated: false
             }
         
 
-        case "SINGLE_BOOK":
+        case "SINGLE_RECIPE":
             return {
                 ...state,
-                book: action.payload
+                recipe: action.payload
             }
 
-        case "UPDATE_BOOK": 
+        case "UPDATE_RECIPE": 
             return {
                 ...state,
                 isUpdated: true,
-                book: null
+                recipe: null
             }
         default:
             return state;

@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { singleBookAsync, updateBookAsync } from "../Redux/actions/book.action";
+import { singleRecipeAsync, updateRecipeAsync } from "../Redux/actions/recipe.action";
 import { useNavigate, useParams } from "react-router";
 
-const EditBook = () => {
+const EditRecipes = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { book, isUpdated } = useSelector(state => state.bookReducer)
-  const [bookInput, setBookInput] = useState({
+  const { recipe, isUpdated } = useSelector(state => state.recipeReducer)
+  const [recipesInput, setRecipesInput] = useState({
     id: "",
     image: "",
     title: "",
@@ -17,31 +17,30 @@ const EditBook = () => {
     category: "",
     price: "",
     description: "",
-    pages: ""
   });
 
   const handelChanged = (e) => {
     const { name, value } = e.target;
-    setBookInput({
-      ...bookInput,
+    setRecipesInput({
+      ...recipesInput,
       [name]: value,
     });
   };
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    console.log("Submit now", bookInput);
+    console.log("Submit now", recipesInput);
 
-    dispatch(updateBookAsync(bookInput));
+    dispatch(updateRecipeAsync(recipesInput));
   };
 
   useEffect(() => {
-    dispatch(singleBookAsync(id));
+    dispatch(singleRecipeAsync(id));
   }, [])
   useEffect(() => {
-    if (book)
-      setBookInput(book);
-  }, [book])
+    if (recipe)
+      setRecipesInput(recipe);
+  }, [recipe])
 
   useEffect(() => {
     if (isUpdated) {
@@ -60,7 +59,7 @@ const EditBook = () => {
             <Col sm="10">
               <Form.Control
                 name="image"
-                value={bookInput.image}
+                value={recipesInput.image}
                 onChange={handelChanged}
               />
             </Col>
@@ -68,14 +67,14 @@ const EditBook = () => {
 
           <Form.Group as={Row} className="mb-3">
             <Form.Label column sm="2">
-              Library Title
+              Recipes Title
             </Form.Label>
             <Col sm="10">
               <Form.Control
                 type="text"
-                placeholder="Enter Book Title"
+                placeholder="Enter recipe Title"
                 name="title"
-                value={bookInput.title}
+                value={recipesInput.title}
                 onChange={handelChanged}
               />
             </Col>
@@ -83,68 +82,37 @@ const EditBook = () => {
 
           <Form.Group as={Row} className="mb-3">
             <Form.Label column sm="2">
-              Library Author
+              Recipes Author
             </Form.Label>
             <Col sm="10">
               <Form.Control
                 type="text"
-                placeholder="Enter Book Author"
+                placeholder="Enter recipe Author"
                 name="author"
-                value={bookInput.author}
-                onChange={handelChanged}
-              />
-            </Col>
-          </Form.Group>
-
-          <Form.Group as={Row} className="mb-3">
-            <Form.Label column sm="2">
-              Library Pages
-            </Form.Label>
-            <Col sm="10">
-              <Form.Control
-                type="number"
-                placeholder="Enter Book Total pages"
-                name="pages"
-                value={bookInput.pages}
+                value={recipesInput.author}
                 onChange={handelChanged}
               />
             </Col>
           </Form.Group>
 
           <Form.Group as={Row} className="mb-4">
-            <Form.Label column sm="2">Book Category</Form.Label>
+            <Form.Label column sm="2">Recipes Price</Form.Label>
             <Col sm="10">
-              <Form.Select name="category" value={bookInput.category} onChange={handelChanged} required>
-                <option value="">Select a Category</option>
-                <option value="Horror">Horror</option>
-                <option value="Science fiction">Science fiction</option>
-                <option value="Fantasy">Fantasy</option>
-                <option value="Literary fiction">Literary fiction</option>
-                <option value="Memoir">Memoir</option>
-                <option value="Poetry">Poetry</option>
-              </Form.Select>
-              <Form.Control.Feedback type="invalid">Please select a category.</Form.Control.Feedback>
-            </Col>
-          </Form.Group>
-
-          <Form.Group as={Row} className="mb-4">
-            <Form.Label column sm="2">Book Price</Form.Label>
-            <Col sm="10">
-              <Form.Control type="text" placeholder="Enter Price" name="price" value={bookInput.description} onChange={handelChanged} required />
+              <Form.Control type="text" placeholder="Enter Price" name="price" value={recipesInput.description} onChange={handelChanged} required />
               <Form.Control.Feedback type="invalid">price is required.</Form.Control.Feedback>
             </Col>
           </Form.Group>
 
           <Form.Group as={Row} className="mb-4">
             <Form.Label column sm="2">
-              Library description
+              Recipes description
             </Form.Label>
             <Col sm="10">
               <Form.Control
                 type="text"
-                placeholder="Library Description"
+                placeholder="Recipes Description"
                 name="description"
-                value={bookInput.description}
+                value={recipesInput.description}
                 onChange={handelChanged}
               />
             </Col>
@@ -154,7 +122,7 @@ const EditBook = () => {
             <Form.Label column sm="2"></Form.Label>
             <Col sm="10">
               <Button href="/" className="me-4" variant="secondary">Back</Button>
-              <Button type="submit">Update Book</Button>
+              <Button type="submit">Update Recipe</Button>
             </Col>
           </Form.Group>
         </Form>
@@ -163,4 +131,4 @@ const EditBook = () => {
   );
 }
 
-export default EditBook;
+export default EditRecipes;

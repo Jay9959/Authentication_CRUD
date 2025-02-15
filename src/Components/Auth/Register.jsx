@@ -42,7 +42,7 @@ const Register = () => {
     <>
       <Row className="mt-5 register">
         <Col>
-          <img src="/public/sign-up-concept-illustration_114360-7875.avif" width={"100%"} alt="" />
+          <img src="/public/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg" width={"100%"} alt="" />
         </Col>
         <Col>
           <Container>

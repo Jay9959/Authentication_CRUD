@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB3jpDt1-hRMtL18vlhFMx_Y6WDzBY4Bco",
-  authDomain: "authentication-2ca58.firebaseapp.com",
-  projectId: "authentication-2ca58",
-  storageBucket: "authentication-2ca58.firebasestorage.app",
-  messagingSenderId: "210352750532",
-  appId: "1:210352750532:web:d88f6c20d62f52f6b2ee91"
+  apiKey: "AIzaSyBQOO7eorTP7mMLrnKtqIYozsHd6OPHXPs",
+  authDomain: "recipes-exam.firebaseapp.com",
+  projectId: "recipes-exam",
+  storageBucket: "recipes-exam.firebasestorage.app",
+  messagingSenderId: "422292847658",
+  appId: "1:422292847658:web:db6d945c7c467a22d6d753"
 };
 
 const app = initializeApp(firebaseConfig);

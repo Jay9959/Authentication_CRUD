@@ -40,7 +40,7 @@ const Login = () => {
     <>
       <Row className="mt-5 login">
         <Col>
-          <img src="/public/login-bg.png" width={"110%"} alt="" />
+          <img src="/public/login-concept-illustration_114360-739.avif" width={"100%"} alt=""  />
         </Col>
         <Col style={{ marginTop: "7%" }}>
           <h3 className="mb-5">Login User</h3>

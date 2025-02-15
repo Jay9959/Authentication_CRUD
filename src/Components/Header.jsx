@@ -14,7 +14,7 @@ function Header() {
         <Navbar className="border bg-body-tertiary text-dark mb-5">
           <Container>
             {user ? <Nav.Link href="/add">Home</Nav.Link> : ""}
-            {user ? <Nav.Link href="/add">Add Book</Nav.Link> : ""}
+            {user ? <Nav.Link href="/add">Add Recipes</Nav.Link> : ""}
             {!user ? <Nav.Link href="/login">Login</Nav.Link> : <button className="border-0 bg-transparent" onClick={handleLogOut}>Logout</button>}
           </Container>
         </Navbar>

@@ -1,4 +1,4 @@
-import DisplayBook from "./DisplayBook";
+import DisplayRecipes from "./DisplayRecipes";
 import Header from "./Header";
 
 function Home() {
@@ -6,7 +6,7 @@ function Home() {
   return (
     <div>
       <Header />
-      <DisplayBook />
+      <DisplayRecipes />
     </div>
   );
 }
